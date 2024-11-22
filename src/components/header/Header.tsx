@@ -44,12 +44,22 @@ export const Header = () => {
           >
             <GitHubIcon />
           </IconWrapper>
-          <IconWrapper aria-label="Email">
-            <AlternateEmailIcon />
-          </IconWrapper>
+          <a href="mailto:delhia.gb.pro@gmail.com">
+            <IconWrapper aria-label="Email">
+              <AlternateEmailIcon />
+            </IconWrapper>
+          </a>
         </Stack>
         <img src="/assets/logo.png" height={40} alt="Logo" loading="lazy" />
-        <DefaultButton>Download Resume</DefaultButton>
+        <DefaultButton>
+          <a
+            href="/assets/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Resume
+          </a>
+        </DefaultButton>
       </Stack>
     </StyledAppBar>
   );
