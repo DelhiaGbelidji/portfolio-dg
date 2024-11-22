@@ -1,0 +1,15 @@
+export const imageFiles = [
+  "css.png",
+  "figma.png",
+  "html.png",
+  "jira.png",
+  "js.png",
+  "linear.png",
+  "mui.png",
+  "nest.png",
+  "next.png",
+  "node.png",
+  "react.png",
+  "ts.png",
+  "vscode.png",
+];

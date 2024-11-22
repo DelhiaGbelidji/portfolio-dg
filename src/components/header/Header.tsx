@@ -1,9 +1,10 @@
 import { AppBar, Stack, styled } from "@mui/material";
-import { DefaultButton, IconWrapper } from "../buttons/Button";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+
 import { COLORS } from "../../utils/colors";
+import { DefaultButton, IconWrapper } from "..";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: COLORS.white,
