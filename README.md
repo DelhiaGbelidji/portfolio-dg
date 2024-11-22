@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# 🌟 Mon Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue dans mon portfolio personnel ! Ce projet est conçu pour présenter mes compétences en développement web et les technologies que j'utilise.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Fonctionnalités
 
-## Expanding the ESLint configuration
+- **Page d'accueil interactive** : Une interface moderne et responsive.
+- **Carousel dynamique** : Présente mes compétences et outils techniques.
+- **Téléchargement de CV** : Téléchargez ou consultez mon CV directement depuis le site.
+- **Liens sociaux** : Accédez rapidement à mes profils LinkedIn, GitHub, ou contactez-moi par email.
+- **Performances optimisées** : Construit avec Vite pour des temps de chargement rapides.
+- **Design responsive** : Adapté à tous les appareils (mobiles, tablettes, desktops).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Technologies utilisées
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Framework :** React + TypeScript
+- **Bundler :** Vite
+- **UI :** Material-UI (MUI)
+- **Carousel :** React Slick
+- **Icons :** Material Icons
+- **Linting et formatage :**
+  - ESLint pour le linting.
+  - Prettier pour le formatage du code.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🌐 Déploiement
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Ce projet est déployé sur Vercel. Vous pouvez consulter mon portfolio ici : [Mon Portfolio en ligne](https://www.linkedin.com/in/delhia-gbelidji/).
+
+---
+
+## 📬 Contact
+
+Vous souhaitez me contacter ? Voici mes informations :
+
+- **LinkedIn** : [Mon LinkedIn](https://www.linkedin.com/in/delhia-gbelidji/)
+- **GitHub** : [Mon GitHub](https://github.com/DelhiaGbelidji)
+- **Email** : [delhia.gb.pro@gmail.com](mailto:delhia.gb.pro@gmail.com)
+
+---
+
+## 📜 Licence
+
+Ce projet est sous licence MIT.
+
+---
+
+Merci de visiter mon portfolio ! 😊
