@@ -36,6 +36,12 @@ export const ClearButton = styled(Button)(() => ({
   },
 }));
 
+export const TextButton = styled(Button)(() => ({
+  "&.MuiButtonBase-root, .MuiButton-text": {
+    color: COLORS.black,
+  },
+}));
+
 export const IconWrapper = styled(IconButton)(({ theme }) => ({
   color: COLORS.dark,
   marginRight: theme.spacing(1.5),

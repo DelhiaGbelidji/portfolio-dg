@@ -5,6 +5,7 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
 import { COLORS } from "../../utils/colors";
 import { DefaultButton, IconWrapper } from "..";
+import { openLink } from "../../utils/links";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: COLORS.white,
@@ -14,10 +15,6 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 }));
 
 export const Header = () => {
-  const openLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <StyledAppBar>
       <Stack
