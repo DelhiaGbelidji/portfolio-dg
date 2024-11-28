@@ -1,5 +1,5 @@
 import {
-  Card,
+  Card as Mui_Card,
   CardActions,
   CardContent,
   CardMedia,
@@ -11,20 +11,15 @@ import { IconWrapper } from "../buttons/Button";
 import { openLink } from "../../utils/links";
 import { Type_Project } from "../../utils/projects";
 
-export const ProjectCard = ({
-  name,
-  image,
-  description,
-  links,
-}: Type_Project) => {
+export const Card = ({ name, image, description, links }: Type_Project) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Mui_Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={`/assets/${image}`}
         title={`${name}`}
       />
-      <CardContent>
+      <CardContent sx={{ height: "180px" }}>
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
@@ -33,18 +28,18 @@ export const ProjectCard = ({
         </Typography>
       </CardContent>
       {links?.length ? (
-        links.map(
-          (link: { url: string; icon: React.ReactNode }, index: number) => (
-            <CardActions key={index}>
-              <IconWrapper onClick={() => openLink(link.url)}>
+        <CardActions>
+          {links.map(
+            (link: { url: string; icon: React.ReactNode }, index: number) => (
+              <IconWrapper key={index} onClick={() => openLink(link.url)}>
                 {link.icon}
               </IconWrapper>
-            </CardActions>
-          )
-        )
+            )
+          )}
+        </CardActions>
       ) : (
         <></>
       )}
-    </Card>
+    </Mui_Card>
   );
 };
