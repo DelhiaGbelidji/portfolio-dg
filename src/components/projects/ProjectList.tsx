@@ -1,12 +1,19 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { Card } from "..";
 import { projects, Type_Project } from "../../utils/projects";
+import { SectionTitle } from "../sectionTitle/SectionTitle";
 
 export const ProjectList = () => {
   return (
     <Stack p={4} spacing={2}>
-      <Typography variant="h6">My projects</Typography>
-      <Box display="flex" flexDirection="row" gap={2} flexWrap="wrap">
+      <SectionTitle title={"My projects"} />
+      <Box
+        display="flex"
+        flexDirection="row"
+        gap={2}
+        flexWrap="wrap"
+        justifyContent={"center"}
+      >
         {projects.map((project: Type_Project, index: number) => (
           <Card
             key={index}

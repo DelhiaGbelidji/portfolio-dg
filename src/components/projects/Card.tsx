@@ -13,7 +13,7 @@ import { Type_Project } from "../../utils/projects";
 
 export const Card = ({ name, image, description, links }: Type_Project) => {
   return (
-    <Mui_Card sx={{ maxWidth: 345 }}>
+    <Mui_Card sx={{ width: 300 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={`/assets/${image}`}
