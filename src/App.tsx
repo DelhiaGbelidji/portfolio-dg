@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { AboutMe, Carousel, Header } from "./components";
+import { AboutMe, Carousel, Header, ProjectList } from "./components";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <Box sx={{ mt: 8 }}>
         <AboutMe />
         <Carousel />
+        <ProjectList />
       </Box>
     </>
   );
