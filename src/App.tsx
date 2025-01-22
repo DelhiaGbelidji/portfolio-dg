@@ -1,16 +1,18 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 
-import { AboutMe, Carousel, Header, ProjectList } from "./components";
+import { AboutMe, Carousel, Header, ProjectsList } from "./components";
+import { AboutMeSection } from "./components/aboutMe/AboutMeSection";
 
 function App() {
   return (
     <>
       <Header />
-      <Box sx={{ mt: 8 }}>
+      <Stack p={4} rowGap={4}>
         <AboutMe />
         <Carousel />
-        <ProjectList />
-      </Box>
+        <ProjectsList />
+        <AboutMeSection />
+      </Stack>
     </>
   );
 }
