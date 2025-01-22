@@ -3,9 +3,8 @@ export const COLORS = {
   black: "#000",
   grey: "#9E9E9E",
 
-  //Theme 
-  main: "#EF959D",
-  light: "#FCDDBC",
-  dark: "#69585F",
-  contrast: "#D9DBBC",
+  //Theme
+  main: "#DD2D4A",
+  dark: "#880D1E",
+  light: "#F26A8D",
 };

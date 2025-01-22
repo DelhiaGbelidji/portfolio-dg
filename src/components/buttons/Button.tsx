@@ -8,12 +8,11 @@ export const DefaultButton = styled(Button)(() => ({
   lineHeight: "16px",
   backgroundColor: COLORS.main,
   border: `1px solid ${COLORS.main}`,
-  color: COLORS.dark,
+  color: COLORS.white,
   "&:hover:not(.Mui-disabled), &.Mui-focused": {
-    backgroundColor: COLORS.white,
-    color: COLORS.main,
+    backgroundColor: COLORS.light,
     boxShadow: "0px 2px 4px rgba(25, 49, 84, 0.15)",
-    border: `1px solid ${COLORS.main}`,
+    border: `1px solid ${COLORS.light}`,
   },
   "&.MuiButtonBase-root": {
     textTransform: "none",
@@ -24,10 +23,10 @@ export const ClearButton = styled(Button)(() => ({
   fontSize: "14px",
   lineHeight: "16px",
   backgroundColor: COLORS.white,
-  color: COLORS.dark,
-  border: `1px solid ${COLORS.dark}`,
+  color: COLORS.light,
+  border: `1px solid ${COLORS.light}`,
   "&:hover:not(.Mui-disabled), &.Mui-focused": {
-    backgroundColor: COLORS.dark,
+    backgroundColor: COLORS.main,
     color: COLORS.white,
     boxShadow: "0px 2px 4px rgba(25, 49, 84, 0.15)",
   },
@@ -36,17 +35,11 @@ export const ClearButton = styled(Button)(() => ({
   },
 }));
 
-export const TextButton = styled(Button)(() => ({
-  "&.MuiButtonBase-root, .MuiButton-text": {
-    color: COLORS.black,
-  },
-}));
-
 export const IconWrapper = styled(IconButton)(({ theme }) => ({
-  color: COLORS.dark,
+  color: COLORS.main,
   marginRight: theme.spacing(1.5),
   "&:hover": {
-    color: COLORS.main,
+    color: COLORS.light,
     transform: "scale(1.1)",
     transition: "transform 0.2s, color 0.2s",
   },

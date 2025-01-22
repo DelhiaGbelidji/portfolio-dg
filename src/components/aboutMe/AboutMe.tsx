@@ -8,8 +8,8 @@ const Container = styled(Box)(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: theme.spacing(4),
   borderRadius: theme.spacing(1),
+  marginTop: theme.spacing(4),
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     textAlign: "center",
@@ -26,7 +26,7 @@ const TextSection = styled(Box)(({ theme }) => ({
 const ProfileImage = styled("img")(({ theme }) => ({
   width: "200px",
   height: "200px",
-  borderRadius: "50%",
+  borderRadius: "4px",
   objectFit: "cover",
   [theme.breakpoints.down("md")]: {
     marginTop: "16px",
@@ -46,20 +46,26 @@ export const AboutMe = () => {
   return (
     <Container>
       <TextSection>
-        <Typography variant="h3" component="h1" fontWeight="bold">
+        <Typography
+          variant="h3"
+          component="h1"
+          fontWeight="bold"
+          fontFamily={"cursive"}
+        >
           Hello, I’m{" "}
-          <span style={{ color: COLORS.contrast }}>Delhia Gbelidji</span>
+          <span style={{ color: COLORS.dark }}>Délhia Gbelidji,</span>
         </Typography>
         <Typography variant="h5" component="p" sx={{ mt: 2 }}>
-          Front-End Developer specializing in React and TypeScript.
+          Front-end Developer specialzing in React/Typescript
         </Typography>
         <Typography variant="body1" sx={{ mt: 2 }}>
-          Passionate about creating modern and intuitive user interfaces, I
-          enjoy solving technical challenges and contributing to meaningful
-          projects.
+          Passionate about developing modern and intuitive user interfaces, I
+          thrive on solving technical challenges, contributing to impactful
+          projects, and continuously learning about web development with the
+          teams I work with.
         </Typography>
         <ButtonContainer>
-          <ClearButton>See my projects</ClearButton>
+          <ClearButton href="#about-me">See more...</ClearButton>
         </ButtonContainer>
       </TextSection>
       <ProfileImage src="/assets/profile.jpeg" alt="Delhia Gbelidji" />

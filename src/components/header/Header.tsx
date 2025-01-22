@@ -1,4 +1,4 @@
-import { AppBar, Stack, styled } from "@mui/material";
+import { AppBar, Box, Stack, styled, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
@@ -10,7 +10,8 @@ import { openLink } from "../../utils/links";
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: COLORS.white,
   position: "fixed",
-  padding: theme.spacing(1),
+  paddingRight: theme.spacing(4),
+  paddingLeft: theme.spacing(4),
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
 }));
 
@@ -21,7 +22,6 @@ export const Header = () => {
         flexDirection={"row"}
         justifyContent={"space-between"}
         alignItems={"center"}
-        sx={{ px: 2 }}
       >
         <Stack
           flexDirection="row"
@@ -48,14 +48,23 @@ export const Header = () => {
             </IconWrapper>
           </a>
         </Stack>
-        <img src="/assets/logo.png" height={40} alt="Logo" loading="lazy" />
+        <Box>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            fontFamily={"cursive"}
+            color="black"
+          >
+            Délhia <span style={{ color: COLORS.dark }}> Gbelidji</span>
+          </Typography>
+        </Box>
         <DefaultButton>
           <a
             href="/assets/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View Resume
+            View resume
           </a>
         </DefaultButton>
       </Stack>

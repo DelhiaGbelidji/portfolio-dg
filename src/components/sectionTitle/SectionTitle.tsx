@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import { COLORS } from "../../utils/colors";
 
 type Type_Props_Title = {
@@ -7,19 +7,24 @@ type Type_Props_Title = {
 
 export const SectionTitle = ({ title }: Type_Props_Title) => {
   return (
-    <Typography
-      variant="h6"
-      sx={{
-        color: COLORS.main,
-        fontWeight: "bold",
-        textAlign: "center",
-        textTransform: "uppercase",
-        borderBottom: `2px solid ${COLORS.contrast}`,
-        display: "inline-block",
-        paddingBottom: "8px",
-      }}
-    >
-      {title}
-    </Typography>
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <Typography
+        variant="h6"
+        sx={{
+          color: COLORS.dark,
+          textTransform: "uppercase",
+          textAlign: "center",
+          fontWeight: "bold",
+        }}
+      >
+        {title}
+      </Typography>
+      <Divider
+        sx={{
+          width: "200px",
+          borderColor: `${COLORS.grey}`,
+        }}
+      />
+    </Box>
   );
 };
