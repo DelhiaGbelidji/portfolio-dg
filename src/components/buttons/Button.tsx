@@ -19,11 +19,23 @@ export const DefaultButton = styled(Button)(() => ({
   },
 }));
 
+export const CardButton = styled(Button)(() => ({
+  height: 32,
+  fontSize: "14px",
+  lineHeight: "16px",
+  backgroundColor: COLORS.cardButton,
+  color: COLORS.cardButtonText,
+  "&.MuiButtonBase-root": {
+    textTransform: "none",
+  },
+}));
+
 export const ClearButton = styled(Button)(() => ({
   fontSize: "14px",
   lineHeight: "16px",
   backgroundColor: COLORS.white,
   color: COLORS.light,
+  borderRadius: 44,
   border: `1px solid ${COLORS.light}`,
   "&:hover:not(.Mui-disabled), &.Mui-focused": {
     backgroundColor: COLORS.main,
@@ -35,9 +47,9 @@ export const ClearButton = styled(Button)(() => ({
   },
 }));
 
-export const IconWrapper = styled(IconButton)(({ theme }) => ({
+export const IconWrapper = styled(IconButton)(() => ({
   color: COLORS.main,
-  marginRight: theme.spacing(1.5),
+  padding: 0,
   "&:hover": {
     color: COLORS.light,
     transform: "scale(1.1)",
