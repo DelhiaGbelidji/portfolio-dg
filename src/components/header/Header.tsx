@@ -1,7 +1,7 @@
 import { AppBar, Stack, styled, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+// import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
 import { COLORS } from "../../utils/colors";
 import { DefaultButton, IconWrapper } from "..";
