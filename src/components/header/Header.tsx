@@ -49,11 +49,11 @@ export const Header = () => {
           >
             <GitHubIcon />
           </IconWrapper>
-          <a href="mailto:delhia.gb.pro@gmail.com">
+          {/* <a href="mailto:delhia.gb.pro@gmail.com">
             <IconWrapper aria-label="Email">
               <AlternateEmailIcon />
             </IconWrapper>
-          </a>
+          </a> */}
         </Stack>
       </Stack>
     </StyledAppBar>
