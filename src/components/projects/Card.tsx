@@ -48,7 +48,7 @@ export const Card = ({ name, image, description, links }: Type_Project) => {
       }}
     >
       <CardMedia sx={{ height: 140 }} image={`/assets/${image}`} title={name} />
-      <CardContent sx={{ height: 170, padding: 1, color: COLORS.darkText }}>
+      <CardContent sx={{ height: 170, padding: 1, color: COLORS.text }}>
         <Box display={"flex"} justifyContent={"center"}>
           <Typography gutterBottom variant="body1" fontWeight={"bold"}>
             {name}

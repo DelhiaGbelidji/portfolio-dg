@@ -34,9 +34,9 @@ export const ClearButton = styled(Button)(() => ({
   fontSize: "14px",
   lineHeight: "16px",
   backgroundColor: COLORS.white,
-  color: COLORS.light,
+  color: COLORS.main,
   borderRadius: 44,
-  border: `1px solid ${COLORS.light}`,
+  border: `1px solid ${COLORS.main}`,
   "&:hover:not(.Mui-disabled), &.Mui-focused": {
     backgroundColor: COLORS.main,
     color: COLORS.white,
