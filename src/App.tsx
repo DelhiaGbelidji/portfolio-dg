@@ -7,12 +7,14 @@ function App() {
   return (
     <>
       <Header />
-      <Stack sx={{ margin: 8 }}>
-        <AboutMe />
-        <Carousel />
-        <ProjectsList />
-        <AboutMeSection />
-      </Stack>
+      <main>
+        <Stack sx={{ margin: 8 }}>
+          <AboutMe />
+          <Carousel />
+          <ProjectsList />
+          <AboutMeSection />
+        </Stack>
+      </main>
     </>
   );
 }

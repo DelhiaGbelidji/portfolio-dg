@@ -9,6 +9,7 @@ import { openLink } from "../../utils/links";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: COLORS.white,
+  color: COLORS.text,
   position: "fixed",
   paddingRight: theme.spacing(4),
   paddingLeft: theme.spacing(4),
@@ -22,8 +23,8 @@ export const Header = () => {
   return (
     <StyledAppBar>
       <Stack flexDirection={"row"} justifyContent={"space-between"} alignItems={"center"}>
-        <Typography variant="h6" fontWeight="bold" color="black">
-          Délhia <span style={{ color: COLORS.dark }}> Gbelidji</span>
+        <Typography variant="h6" fontWeight="bold">
+          Délhia <span style={{ color: COLORS.main }}> Gbelidji</span>
         </Typography>
         <Stack
           flexDirection="row"
@@ -32,25 +33,28 @@ export const Header = () => {
           alignItems={"center"}
           gap={2}
         >
-          <DefaultButton>
-            <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
-              View resume
-            </a>
+          <DefaultButton
+            aria-label="View resume"
+            onClick={() => window.open("/assets/resume.pdf", "_blank", "noopener noreferrer")}
+          >
+            View resume
           </DefaultButton>
           <IconWrapper
             aria-label="LinkedIn"
+            title="Linkedin"
             onClick={() => openLink("https://www.linkedin.com/in/delhia-gbelidji/")}
           >
             <LinkedInIcon />
           </IconWrapper>
           <IconWrapper
+            title="Github"
             aria-label="GitHub"
             onClick={() => openLink("https://github.com/DelhiaGbelidji")}
           >
             <GitHubIcon />
           </IconWrapper>
           {/* <a href="mailto:delhia.gb.pro@gmail.com">
-            <IconWrapper aria-label="Email">
+            <IconWrapper aria-label="Email" title="Email me">
               <AlternateEmailIcon />
             </IconWrapper>
           </a> */}

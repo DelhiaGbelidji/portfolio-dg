@@ -46,7 +46,7 @@ export const AboutMe = () => {
       <TextSection>
         <Typography variant="h4" component="h1" fontWeight="bold">
           Hello, I’m {""}
-          <span style={{ color: COLORS.main }}>Délhia Gbelidji,</span>
+          <span style={{ color: COLORS.dark }}>Délhia Gbelidji,</span>
         </Typography>
         <Typography variant="h5" component="p" sx={{ mt: 2 }}>
           Software Developer
@@ -58,7 +58,9 @@ export const AboutMe = () => {
           complete applications from A to Z while always keeping user experience in mind.
         </Typography>
         <ButtonContainer>
-          <ClearButton href="#about-me">See more...</ClearButton>
+          <ClearButton href="#about-me" aria-label="See more">
+            See more...
+          </ClearButton>
         </ButtonContainer>
       </TextSection>
       <ProfileImage src="/assets/profile.jpeg" alt="Delhia Gbelidji" />

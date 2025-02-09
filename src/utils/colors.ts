@@ -1,7 +1,5 @@
 export const COLORS = {
   white: "#FFF",
-  black: "#000",
-  grey: "#9E9E9E",
 
   //Theme
   main: "#DD2D4A",
@@ -9,7 +7,7 @@ export const COLORS = {
   light: "#F26A8D",
 
   //Text
-  darkText: "#260207",
+  text: "#260207",
   cardButtonText: "#4D050F",
 
   //Cards

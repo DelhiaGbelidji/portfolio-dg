@@ -6,4 +6,16 @@ a {
 :root {
   background-image: url("/assets/bg.svg");
   background-size: contain;
+  color: #260207;
+}
+
+.slick-prev,
+.slick-next {
+  height: 30px;
+  background: #f7bbc5;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: #f7bbc5;
 }
