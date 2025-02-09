@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <Stack p={4} rowGap={4}>
+      <Stack sx={{ margin: 8 }}>
         <AboutMe />
         <Carousel />
         <ProjectsList />

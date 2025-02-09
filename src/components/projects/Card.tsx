@@ -6,14 +6,16 @@ import {
   Typography,
   Box,
   Divider,
+  Grid2,
 } from "@mui/material";
 
-import { IconWrapper } from "../buttons/Button";
 import { openLink } from "../../utils/links";
 import projectsData from "../../utils/projects.json";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { SectionTitle } from "..";
+import { COLORS } from "../../utils/colors";
+import { CardButton } from "../buttons/Button";
 
 export type Type_Project = {
   name: string;
@@ -37,31 +39,34 @@ export const Card = ({ name, image, description, links }: Type_Project) => {
   };
 
   return (
-    <Mui_Card sx={{ width: 300 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={`/assets/${image}`}
-        title={`${name}`}
-      />
-      <CardContent sx={{ height: "180px", padding: 1 }}>
+    <Mui_Card
+      sx={{
+        minWidth: 300,
+        maxWidth: 300,
+        transition: "0.3s",
+        "&:hover": { backgroundColor: COLORS.cardHover },
+      }}
+    >
+      <CardMedia sx={{ height: 140 }} image={`/assets/${image}`} title={name} />
+      <CardContent sx={{ height: 170, padding: 1, color: COLORS.darkText }}>
         <Box display={"flex"} justifyContent={"center"}>
           <Typography gutterBottom variant="body1" fontWeight={"bold"}>
             {name}
           </Typography>
         </Box>
-        <Typography variant="body2">{description}</Typography>
+        <Box>
+          <Typography variant="caption" lineHeight={0}>
+            {description}
+          </Typography>
+        </Box>
       </CardContent>
       <Divider />
       {links?.length ? (
-        <CardActions>
+        <CardActions sx={{ paddingX: 2 }}>
           {links.map(({ url, icon }, index) => (
-            <IconWrapper
-              title={icon === "GitHub" ? "Open Github's repo" : "Open website"}
-              key={index}
-              onClick={() => openLink(url)}
-            >
-              {getIcon(icon)}
-            </IconWrapper>
+            <CardButton key={index} onClick={() => openLink(url)} startIcon={getIcon(icon)}>
+              {icon === "GitHub" ? "Open repo" : "See the project"}
+            </CardButton>
           ))}
         </CardActions>
       ) : null}
@@ -73,11 +78,19 @@ export const ProjectsList = () => {
   return (
     <>
       <SectionTitle title="My projects" />
-      <Box display="flex" flexWrap="wrap" justifyContent="center" gap={4}>
+      <Grid2
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        justifyContent="center"
+        alignItems="center"
+      >
         {projects.map((project, index) => (
-          <Card key={index} {...project} />
+          <Grid2 key={index} display="flex" justifyContent="center">
+            <Card {...project} />
+          </Grid2>
         ))}
-      </Box>
+      </Grid2>
     </>
   );
 };
