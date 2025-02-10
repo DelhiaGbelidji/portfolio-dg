@@ -64,7 +64,12 @@ export const Card = ({ name, image, description, links }: Type_Project) => {
       {links?.length ? (
         <CardActions sx={{ paddingX: 2 }}>
           {links.map(({ url, icon }, index) => (
-            <CardButton key={index} onClick={() => openLink(url)} startIcon={getIcon(icon)}>
+            <CardButton
+              key={index}
+              onClick={() => openLink(url)}
+              startIcon={getIcon(icon)}
+              aria-label={icon === "GitHub" ? "Open repo" : "See the project"}
+            >
               {icon === "GitHub" ? "Open repo" : "See the project"}
             </CardButton>
           ))}

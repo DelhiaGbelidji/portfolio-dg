@@ -8,6 +8,7 @@ export const COLORS = {
 
   //Text
   text: "#260207",
+  secondaryText: "#91898a",
   cardButtonText: "#4D050F",
 
   //Cards

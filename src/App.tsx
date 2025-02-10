@@ -1,7 +1,6 @@
 import { Stack } from "@mui/material";
 
-import { AboutMe, Carousel, Header, ProjectsList } from "./components";
-import { AboutMeSection } from "./components/aboutMe/AboutMeSection";
+import { AboutMe, AboutMeSection, Carousel, Header, ProjectsList } from "./components";
 
 function App() {
   return (
