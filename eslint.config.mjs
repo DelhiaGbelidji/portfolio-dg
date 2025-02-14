@@ -18,10 +18,10 @@ export default [
         jsx: true,
       },
       globals: {
-        window: "readonly",
-        document: "readonly",
-        navigator: "readonly",
+        window: true,
+        document: true,
         console: "readonly",
+        navigator: true,
       },
     },
     plugins: {

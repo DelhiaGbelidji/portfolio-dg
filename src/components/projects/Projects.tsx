@@ -81,7 +81,7 @@ export const Card = ({ name, image, description, links }: Type_Project) => {
 
 export const ProjectsList = () => {
   return (
-    <>
+    <section id="my-projects">
       <SectionTitle title="My projects" />
       <Grid2
         container
@@ -96,6 +96,6 @@ export const ProjectsList = () => {
           </Grid2>
         ))}
       </Grid2>
-    </>
+    </section>
   );
 };

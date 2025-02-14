@@ -8,7 +8,7 @@ export const COLORS = {
 
   //Text
   text: "#260207",
-  secondaryText: "#91898a",
+  secondaryText: "#3D3839",
   cardButtonText: "#4D050F",
 
   //Cards

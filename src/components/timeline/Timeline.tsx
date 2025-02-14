@@ -79,12 +79,14 @@ export const Timeline = () => {
                   color: COLORS.text,
                 }}
               >
-                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                  {item.title}
-                </Typography>
-                <Typography variant="subtitle2" color={COLORS.secondaryText}>
-                  {item.date}
-                </Typography>
+                <Box px={2}>
+                  <Typography component="h1" variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                    {item.title}
+                  </Typography>
+                  <Typography component="h2" variant="subtitle2" color={COLORS.secondaryText}>
+                    {item.date}
+                  </Typography>
+                </Box>
                 <List>
                   {item.description.map((point, i) => (
                     <ListItem key={i} sx={{ py: 0 }}>
