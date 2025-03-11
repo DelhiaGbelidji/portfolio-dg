@@ -30,8 +30,7 @@ Bienvenue dans mon portfolio personnel ! Ce projet est conçu pour présenter me
 
 ## 🌐 Déploiement
 
-Ce projet est déployé sur Vercel. Vous pouvez consulter mon portfolio ici : [Mon Portfolio en ligne](delhiagbelidji.vercel.app
-)
+Ce projet est déployé sur Vercel. Vous pouvez consulter mon portfolio ici : [Mon Portfolio en ligne](htpps://delhiagbelidji.vercel.app)
 
 ---
 
