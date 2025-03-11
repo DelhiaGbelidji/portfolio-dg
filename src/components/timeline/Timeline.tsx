@@ -38,7 +38,7 @@ const timelineData = [
 
 export const Timeline = () => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 6 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Box sx={{ position: "relative", width: "100%", maxWidth: 800 }}>
         {/* Vertical Line */}
         <Box

@@ -7,7 +7,7 @@ type Type_Props_Title = {
 
 export const SectionTitle = ({ title }: Type_Props_Title) => {
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" m={4}>
+    <Box display="flex" flexDirection="column" alignItems="center" m={8}>
       <Typography
         variant="h6"
         component="h1"
