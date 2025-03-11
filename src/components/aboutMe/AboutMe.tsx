@@ -1,5 +1,6 @@
-import { Box, Typography, styled } from "@mui/material";
-
+import { Box, styled, Typography } from "@mui/material";
+import { SectionTitle } from "../sectionTitle/SectionTitle";
+import { Timeline } from "..";
 import { COLORS } from "../../utils/colors";
 import { ClearButton } from "../buttons/Button";
 
@@ -63,7 +64,16 @@ export const AboutMe = () => {
           </ClearButton>
         </ButtonContainer>
       </TextSection>
-      <ProfileImage src="/assets/profile.jpeg" alt="Delhia Gbelidji" />
+      <ProfileImage src="/assets/profile.jpeg" alt="Profile image" />
     </Container>
+  );
+};
+
+export const AboutMeSection = () => {
+  return (
+    <section id="about-me">
+      <SectionTitle title={"my journey"} />
+      <Timeline />
+    </section>
   );
 };
