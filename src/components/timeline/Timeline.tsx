@@ -39,8 +39,15 @@ const timelineData = [
 export const Timeline = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Box sx={{ position: "relative", width: "100%", maxWidth: 800 }}>
-        {/* Vertical Line */}
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          maxWidth: { xs: "100%", sm: 800 },
+          px: { xs: 2, sm: 0 },
+        }}
+      >
+        {/* Desktop Vertical Line */}
         <Box
           sx={{
             position: "absolute",
@@ -49,71 +56,139 @@ export const Timeline = () => {
             width: 4,
             height: "100%",
             bgcolor: COLORS.main,
+            display: { xs: "none", sm: "block" },
           }}
         />
         {timelineData.map((item, index) => (
-          <motion.div
+          <Box
             key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.3 }}
-            style={{
-              display: "flex",
-              justifyContent: index % 2 === 0 ? "start" : "end",
+            sx={{
               width: "100%",
-              marginBottom: 40,
+              mb: { xs: 8, sm: 5 },
+              position: "relative",
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "center", sm: "flex-start" },
+              justifyContent: {
+                sm: index % 2 === 0 ? "flex-start" : "flex-end",
+              },
             }}
           >
-            <motion.div
-              whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              style={{ width: "45%" }}
-            >
-              <Paper
-                elevation={3}
-                sx={{
-                  p: 1,
-                  borderRadius: 2,
-                  backgroundColor: "#F8F2F3",
-                  cursor: "pointer",
-                  color: COLORS.text,
-                }}
-              >
-                <Box px={2}>
-                  <Typography component="h1" variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                    {item.title}
-                  </Typography>
-                  <Typography component="h2" variant="subtitle2" color={COLORS.secondaryText}>
-                    {item.date}
-                  </Typography>
-                </Box>
-                <List>
-                  {item.description.map((point, i) => (
-                    <ListItem key={i} sx={{ py: 0 }}>
-                      <ListItemText
-                        primary={`• ${point}`}
-                        primaryTypographyProps={{ variant: "caption" }}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Paper>
-            </motion.div>
-            {/* Timeline Dot */}
             <Box
               sx={{
+                width: "100%",
+                maxWidth: { xs: "100%", sm: "45%" },
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.3 }}
+                style={{ width: "100%" }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                  style={{ width: "100%" }}
+                >
+                  <Paper
+                    elevation={3}
+                    sx={{
+                      p: 2,
+                      borderRadius: 2,
+                      backgroundColor: "#F8F2F3",
+                      cursor: "pointer",
+                      color: COLORS.text,
+                      "&:hover": {
+                        boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
+                      },
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        component="h1"
+                        variant="subtitle1"
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: { xs: "1rem", sm: "1.1rem" },
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        component="h2"
+                        variant="subtitle2"
+                        color={COLORS.secondaryText}
+                        sx={{
+                          fontSize: { xs: "0.875rem", sm: "0.9rem" },
+                        }}
+                      >
+                        {item.date}
+                      </Typography>
+                    </Box>
+                    <List>
+                      {item.description.map((point, i) => (
+                        <ListItem key={i} sx={{ py: 0 }}>
+                          <ListItemText
+                            primary={`• ${point}`}
+                            primaryTypographyProps={{
+                              variant: "caption",
+                              sx: {
+                                fontSize: { xs: "0.75rem", sm: "0.8rem" },
+                              },
+                            }}
+                          />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Paper>
+                </motion.div>
+              </motion.div>
+            </Box>
+            {/* Mobile Timeline Elements */}
+            <Box
+              sx={{
+                display: { xs: "flex", sm: "none" },
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+                mt: 2,
+              }}
+            >
+              <Box
+                sx={{
+                  width: 4,
+                  height: 24,
+                  bgcolor: COLORS.main,
+                }}
+              />
+              <Box
+                sx={{
+                  width: 12,
+                  height: 12,
+                  backgroundColor: COLORS.main,
+                  borderRadius: "50%",
+                  border: `3px solid ${COLORS.main}`,
+                }}
+              />
+            </Box>
+            {/* Desktop Timeline Dot */}
+            <Box
+              sx={{
+                display: { xs: "none", sm: "block" },
                 width: 16,
                 height: 16,
                 backgroundColor: COLORS.main,
                 borderRadius: "50%",
                 position: "absolute",
                 left: "50%",
+                top: "25%",
                 transform: "translateX(-50%)",
-                mt: 1.5,
                 border: `4px solid ${COLORS.main}`,
+                zIndex: 1,
               }}
             />
-          </motion.div>
+          </Box>
         ))}
       </Box>
     </Box>

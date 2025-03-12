@@ -1,63 +1,80 @@
-import { AppBar, Stack, styled, Typography } from "@mui/material";
+import { AppBar, Stack, styled, Typography, useTheme } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-// import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 import { COLORS } from "../../utils/colors";
-import { DefaultButton, IconWrapper } from "..";
+import { IconWrapper } from "..";
 import { openLink } from "../../utils/links";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: COLORS.white,
   color: COLORS.text,
   position: "fixed",
-  paddingRight: theme.spacing(4),
-  paddingLeft: theme.spacing(4),
-  paddingTop: theme.spacing(1),
-  paddingBottom: theme.spacing(1),
+  padding: theme.spacing(1.5),
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   borderRadius: "0 0 8px 8px",
 }));
 
 export const Header = () => {
+  const theme = useTheme();
   return (
     <StyledAppBar>
-      <Stack flexDirection={"row"} justifyContent={"space-between"} alignItems={"center"}>
-        <Typography variant="h6" fontWeight="bold">
-          Délhia <span style={{ color: COLORS.main }}> Gbelidji</span>
+      <Stack
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        sx={{ width: "100%" }}
+      >
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          sx={{
+            [theme.breakpoints.down("sm")]: {
+              "& .fullName": { display: "none" },
+              "& .initials": { display: "inline", fontSize: "1.25rem" },
+            },
+            [theme.breakpoints.up("sm")]: {
+              "& .fullName": { display: "inline" },
+              "& .initials": { display: "none" },
+            },
+          }}
+        >
+          <span className="fullName">
+            Délhia <span style={{ color: COLORS.main }}>Gbelidji</span>
+          </span>
+          <span className="initials">
+            D<span style={{ color: COLORS.main }}>G</span>
+          </span>
         </Typography>
         <Stack
-          flexDirection="row"
+          direction="row"
           component="nav"
           aria-label="Social media links"
-          alignItems={"center"}
-          gap={2}
+          alignItems="center"
+          spacing={2}
         >
-          <DefaultButton
+          <IconWrapper
             aria-label="View resume"
+            title="View resume"
             onClick={() => window.open("/assets/resume.pdf", "_blank", "noopener noreferrer")}
           >
-            View resume
-          </DefaultButton>
+            <DescriptionIcon />
+          </IconWrapper>
           <IconWrapper
             aria-label="LinkedIn"
-            title="Linkedin"
+            title="LinkedIn"
             onClick={() => openLink("https://www.linkedin.com/in/delhia-gbelidji/")}
           >
             <LinkedInIcon />
           </IconWrapper>
           <IconWrapper
-            title="Github"
+            title="GitHub"
             aria-label="GitHub"
             onClick={() => openLink("https://github.com/DelhiaGbelidji")}
           >
             <GitHubIcon />
           </IconWrapper>
-          {/* <a href="mailto:delhia.gb.pro@gmail.com">
-            <IconWrapper aria-label="Email" title="Email me">
-              <AlternateEmailIcon />
-            </IconWrapper>
-          </a> */}
         </Stack>
       </Stack>
     </StyledAppBar>
