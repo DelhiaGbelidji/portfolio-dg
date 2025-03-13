@@ -54,5 +54,20 @@
         "icon": "OpenInNew"
       }
     ]
+  },
+  {
+    "name": "READ-IT",
+    "image": "readit.png",
+    "description": " READ-IT is a self publishing platform developed to improve publishing process. This is the MVP that contains authentication features and project management features.",
+    "links": [
+      {
+        "url": "https://github.com/DelhiaGbelidji/read-it",
+        "icon": "GitHub"
+      },
+      {
+        "url": "https://github.com/DelhiaGbelidji/read-it-back",
+        "icon": "GitHub"
+      }
+    ]
   }
 ]

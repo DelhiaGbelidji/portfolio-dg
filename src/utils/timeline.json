@@ -1,0 +1,33 @@
+[
+  {
+    "date": "February 2023 - October 2024",
+    "title": "Front-End Developer - Teamoty",
+    "description": [
+      "One year apprenticeship and six months contract",
+      "Developed features with React, TypeScript, and MUI.",
+      "Improved code structure and implemented best practices.",
+      "Worked closely with UI/UX designers to enhance user experience.",
+      "Refactored components for better maintainability.",
+      "Collaborated with back-end teams to integrate APIs."
+    ]
+  },
+  {
+    "date": "December 2023 - March 2024",
+    "title": "READ-it - Personal project",
+    "description": [
+      "Developed a self publishing platform to improve publishing process.",
+      "Created wireframes and mockups",
+      "Built the frontend using Next.js and the backend with NestJS, with SQLite for the database.",
+      "Developed authentication features (sign-in and sign-up), project creation, modification, and deletion, as well as manuscript creation and deletion"
+    ]
+  },
+  {
+    "date": "May 2022 - February 2023",
+    "title": "Software Developer training",
+    "description": [
+      "Worked on group projects following AGILE methodology.",
+      "Gained expertise in web and mobile development.",
+      "Enhanced problem-solving skills by developing several projects in different langages"
+    ]
+  }
+]
