@@ -3,6 +3,7 @@
     "name": "Michonne's Zombalad",
     "description": "Coded in a simplified version of the language LUA, in the vintage style game console, PICO-8. You are Michonne in a post-apocalyptic world and you have to eliminate all the zombies (that look a lot like a french politician but it's open to interpretation).",
     "image": "pico8.gif",
+    "imageWebp": null,
     "links": [
       {
         "url": "https://github.com/DelhiaGbelidji/Pico8",
@@ -18,6 +19,7 @@
     "name": "Welcome to space",
     "description": "Welcome to this data-visualisation site. You can follow the ISS path around Earth. There is also a feature APOD where you can find what picture the NASA posted according to the date you choose. I developed it during my time at Ada Tech School with two teammates (Nicolas and Clémentine).",
     "image": "dataviz.gif",
+    "imageWebp": null,
     "links": [
       {
         "url": "https://github.com/DelhiaGbelidji/DatavizAPI",
@@ -33,6 +35,7 @@
     "name": "Turfu",
     "description": "Turfu is a Google Chrome extension created to simplify your web surfing: a notepad, a bookmark, and a dictionary. Very useful if you're a student writing a thesis (just an example of the many uses!).",
     "image": "turfu.gif",
+    "imageWebp": null,
     "links": [
       {
         "url": "https://github.com/DelhiaGbelidji/projet_collectif_extension_naviateur-ada_extension",
@@ -44,6 +47,7 @@
     "name": "My first portfolio",
     "description": "This portfolio was my very first attempt at showcasing my work as a developer. Built a couple of years ago, it was a project where I explored ReactJS. While simple in design, it was a significant milestone in my journey as a developer, reflecting my eagerness to learn and grow.",
     "image": "portfolio.png",
+    "imageWebp": "webp/portfolio.webp",
     "links": [
       {
         "url": "https://github.com/DelhiaGbelidji/Portfolio",
@@ -58,7 +62,8 @@
   {
     "name": "READ-IT",
     "image": "readit.png",
-    "description": " READ-IT is a self publishing platform developed to improve publishing process. This is the MVP that contains authentication features and project management features.",
+    "imageWebp": "webp/readit.webp",
+    "description": "READ-IT is a self publishing platform developed to improve publishing process. This is the MVP that contains authentication features and project management features.",
     "links": [
       {
         "url": "https://github.com/DelhiaGbelidji/read-it",

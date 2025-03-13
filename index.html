@@ -1,13 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-  </head>
+    <title>Délhia Gbelidji - Développeuse Full Stack | Portfolio</title>
+    <meta name="description" content="Portfolio de Délhia Gbelidji, développeuse Full Stack spécialisée en React.js, TypeScript, Next.js et Nest.js. Découvrez mes projets et mon parcours professionnel." />
+    <meta name="keywords" content="Délhia Gbelidji, développeur full stack, react, typescript, nextjs, nestjs, portfolio, développeur web" />
+    <meta name="author" content="Délhia Gbelidji" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Délhia Gbelidji - Développeuse Full Stack" />
+    <meta property="og:description" content="Portfolio de Délhia Gbelidji, développeuse Full Stack spécialisée en React.js, TypeScript, Next.js et Nest.js." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <link rel="canonical" href="https://delhiagbelidji.com" />
+    
+    <!-- PWA support -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Resource hints -->
+    <link rel="modulepreload" href="/src/main.tsx" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- Préchargement des images critiques -->
+    <link rel="preload" as="image" href="/assets/webp/profile.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/profile.jpeg" type="image/jpeg" />
+    <link rel="preload" as="image" href="/assets/webp/react.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/webp/ts.webp" type="image/webp" />
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

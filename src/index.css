@@ -11,11 +11,5 @@ a {
 
 .slick-prev,
 .slick-next {
-  height: 30px;
-  background: #f7bbc5;
-}
-
-.slick-prev:hover,
-.slick-next:hover {
-  background: #f7bbc5;
+  display: none;
 }

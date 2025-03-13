@@ -1,0 +1,16 @@
+{
+  "name": "Portfolio Delhia Gbelidji",
+  "short_name": "DG Portfolio",
+  "description": "Portfolio de Delhia Gbelidji - Développeuse Full Stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
