@@ -2,7 +2,6 @@ import { Box, styled, Typography } from "@mui/material";
 import { SectionTitle } from "../sectionTitle/SectionTitle";
 import { Timeline } from "..";
 import { COLORS } from "../../utils/colors";
-import { ClearButton } from "../buttons/Button";
 
 const Container = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -40,14 +39,6 @@ const ProfileImage = styled("img")(() => ({
   },
 }));
 
-const ButtonContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  marginTop: theme.spacing(1),
-  [theme.breakpoints.down("md")]: {
-    justifyContent: "center",
-  },
-}));
-
 export const AboutMe = () => {
   return (
     <Container>
@@ -65,11 +56,6 @@ export const AboutMe = () => {
           full-stack development with frameworks like Next.js and Nest.js. This allows me to build
           complete applications from A to Z while always keeping user experience in mind.
         </Typography>
-        <ButtonContainer>
-          <ClearButton href="#about-me" aria-label="See more">
-            See more...
-          </ClearButton>
-        </ButtonContainer>
       </TextSection>
       <picture>
         <source srcSet="/assets/webp/profile.webp" type="image/webp" />
