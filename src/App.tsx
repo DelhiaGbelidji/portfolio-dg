@@ -29,26 +29,28 @@ function App() {
         sx={{
           position: "relative",
           minHeight: "100vh",
-          pt: 4,
-          pb: 8
+          pt: { xs: 2, md: 4 },
+          pb: { xs: 4, md: 8 },
+          mt: 6
         }}
       >
         <Container maxWidth="lg">
           <Stack
-            spacing={8}
+            spacing={{ xs: 4, md: 6 }}
             sx={{
               position: "relative",
-              "& > *": {
+              "& > section": {
                 position: "relative",
                 zIndex: 1,
-                backdropFilter: "blur(8px)",
-                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                backgroundColor: "rgba(255, 255, 255, 0.95)",
                 borderRadius: 2,
-                p: 4,
+                p: { xs: 2, md: 4 },
                 boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                transition: "transform 0.3s ease-in-out",
+                willChange: "transform",
+                transform: "translateZ(0)",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 "&:hover": {
-                  transform: "translateY(-4px)"
+                  transform: "translateZ(0) translateY(-4px)"
                 }
               }
             }}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, Skeleton, styled } from "@mui/material";
+import type { CSSProperties } from "react";
 
 interface ImageWithPlaceholderProps {
   src: string;
@@ -9,6 +10,8 @@ interface ImageWithPlaceholderProps {
   height?: string | number;
   objectFit?: "contain" | "cover" | "fill" | "none" | "scale-down";
   className?: string;
+  onLoad?: () => void;
+  style?: CSSProperties;
 }
 
 const StyledImage = styled("img")({
@@ -27,11 +30,14 @@ export const ImageWithPlaceholder = ({
   height = "100%",
   objectFit = "cover",
   className,
+  onLoad,
+  style,
 }: ImageWithPlaceholderProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleLoad = () => {
     setIsLoaded(true);
+    onLoad?.();
   };
 
   return (
@@ -62,28 +68,22 @@ export const ImageWithPlaceholder = ({
           <StyledImage
             src={src}
             alt={alt}
+            width="100%"
+            height="100%"
+            style={{ objectFit, ...style }}
             onLoad={handleLoad}
             className={isLoaded ? "loaded" : ""}
-            style={{
-              width,
-              height,
-              objectFit,
-            }}
-            loading="lazy"
           />
         </picture>
       ) : (
         <StyledImage
           src={src}
           alt={alt}
+          width="100%"
+          height="100%"
+          style={{ objectFit, ...style }}
           onLoad={handleLoad}
           className={isLoaded ? "loaded" : ""}
-          style={{
-            width,
-            height,
-            objectFit,
-          }}
-          loading="lazy"
         />
       )}
     </Box>
