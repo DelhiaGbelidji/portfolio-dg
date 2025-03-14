@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState } from "react";
 import { Card as Mui_Card, CardActions, CardContent, Typography, Box, Grid } from "@mui/material";
 import { openLink } from "../../utils/links";
 import projectsData from "../../utils/projects.json";
@@ -9,7 +9,6 @@ import { COLORS } from "../../utils/colors";
 import { CardButton } from "../buttons/Button";
 import { useImagePreloader } from "../../hooks/useImagePreloader";
 import { ImageWithPlaceholder } from "../common/ImageWithPlaceholder";
-import { LazyComponent } from "../common/LazyComponent";
 
 interface ProjectLink {
   url: string;
@@ -102,10 +101,9 @@ ProjectCard.displayName = "ProjectCard";
 
 export const Projects = memo(() => {
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
-  const [visibleProjects, setVisibleProjects] = useState<Project[]>(projects.slice(0, 6));
 
-  // Preload visible images
-  const imagesToPreload = visibleProjects
+  // Preload all project images
+  const imagesToPreload = projects
     .map((project) => [
       project.imageWebp ? `/assets/${project.imageWebp}` : null,
       `/assets/${project.image}`,
@@ -114,27 +112,6 @@ export const Projects = memo(() => {
     .filter(Boolean) as string[];
 
   useImagePreloader(imagesToPreload);
-  
-  useEffect(() => {
-    // Sauvegarde la position actuelle
-    const scrollY = window.scrollY;
-    
-    // Charger tous les projets
-    setVisibleProjects(projects);
-    
-    // Utiliser requestAnimationFrame pour une meilleure synchronisation avec le cycle de rendu
-    // eslint-disable-next-line no-undef
-    const frameId = requestAnimationFrame(() => {
-      window.scrollTo({ top: scrollY, behavior: "instant" }); // Restaure la position
-    });
-    
-    return () => {
-      // Nettoyer l'animation frame si le composant est démonté
-      // eslint-disable-next-line no-undef
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
-  
 
   const handleImageLoad = (imagePath: string) => {
     setLoadedImages((prev) => new Set([...prev, imagePath]));
@@ -165,7 +142,7 @@ export const Projects = memo(() => {
           role="list"
           aria-label="Projects grid"
         >
-          {visibleProjects.map((project) => (
+          {projects.map((project) => (
             <Grid
               item
               key={project.name}
@@ -176,7 +153,7 @@ export const Projects = memo(() => {
               aria-label={`Project: ${project.name}`}
               sx={{
                 display: "flex",
-                opacity: loadedImages.has(`/assets/${project.image}`) ? 1 : 0,
+                opacity: loadedImages.has(`/assets/${project.image}`) ? 1 : 0.4,
                 transition: "opacity 0.5s ease-in-out",
               }}
             >
@@ -186,12 +163,10 @@ export const Projects = memo(() => {
                   display: "flex",
                 }}
               >
-                <LazyComponent threshold={0.1} rootMargin="300px">
-                  <ProjectCard
-                    {...project}
-                    onImageLoad={() => handleImageLoad(`/assets/${project.image}`)}
-                  />
-                </LazyComponent>
+                <ProjectCard
+                  {...project}
+                  onImageLoad={() => handleImageLoad(`/assets/${project.image}`)}
+                />
               </Box>
             </Grid>
           ))}

@@ -1,25 +1,10 @@
 import { Box } from "@mui/material";
-import { useEffect } from "react";
 
 import { COLORS } from "../../utils/colors";
 import { TimelineItem } from "./TimelineItem";
 import timelineData from "../../utils/timeline.json";
 
 export const Timeline = () => {
-  useEffect(() => {
-    const scrollY = window.scrollY;
-  
-    // eslint-disable-next-line no-undef
-    const frameId = requestAnimationFrame(() => {
-      window.scrollTo({ top: scrollY, behavior: "instant" });
-    });
-    
-    return () => {
-      // eslint-disable-next-line no-undef
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
-
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
       <Box
