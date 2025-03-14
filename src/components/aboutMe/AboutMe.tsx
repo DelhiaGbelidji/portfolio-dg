@@ -9,13 +9,6 @@ const Container = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "space-between",
   gap: theme.spacing(4),
-  transform: 'translate3d(0,0,0)',
-  willChange: 'transform',
-  backfaceVisibility: 'hidden',
-  '& > *': {
-    transform: 'translate3d(0,0,0)',
-    backfaceVisibility: 'hidden',
-  },
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     textAlign: "center",
@@ -39,9 +32,6 @@ const ProfileImage = styled("img")(() => ({
   borderRadius: "25% 45% 50% 70%",
   objectFit: "cover",
   filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.1))",
-  transform: 'translate3d(0,0,0)',
-  willChange: 'transform',
-  backfaceVisibility: 'hidden',
   transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   "&:hover": {
     transform: "translate3d(0,0,0) scale(1.02)",
@@ -51,7 +41,7 @@ const ProfileImage = styled("img")(() => ({
 
 export const AboutMe = () => {
   return (
-    <section>
+    <section style={{ overflow: 'hidden' }}>
       <Container>
         <TextSection>
           <Typography variant="h4" component="h1" fontWeight="bold">
@@ -85,7 +75,16 @@ export const AboutMe = () => {
 
 export const AboutMeSection = () => {
   return (
-    <section id="about-me">
+    <section
+      id="about-me"
+      style={{
+        position: 'relative',
+        display: 'block',
+        width: '100%',
+        maxWidth: '100vw',
+        overflowX: 'hidden'
+      }}
+    >
       <SectionTitle title={"my journey"} />
       <Timeline />
     </section>

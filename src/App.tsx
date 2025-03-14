@@ -46,11 +46,9 @@ function App() {
                 borderRadius: 2,
                 p: { xs: 2, md: 4 },
                 boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                willChange: "transform",
-                transform: "translateZ(0)",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                transition: "box-shadow 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "translateZ(0) translateY(-4px)"
+                  boxShadow: "0 12px 40px rgba(0, 0, 0, 0.15)"
                 }
               }
             }}

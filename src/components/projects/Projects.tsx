@@ -27,72 +27,76 @@ export interface Project {
 
 const projects: Project[] = projectsData;
 
-export const ProjectCard = memo(({ name, image, imageWebp, description, links, onImageLoad }: Project) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  return (
-    <Mui_Card
-      sx={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: COLORS.white,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.02)",
-          backgroundColor: COLORS.cardHover
-        },
-      }}
-    >
-      <Box 
-        sx={{ 
-          height: 140,
-          opacity: isLoaded ? 1 : 0.4,
-          transition: 'opacity 0.3s ease-in-out',
-          transform: 'translate3d(0,0,0)',
-          willChange: 'opacity',
-        }}>
-        <ImageWithPlaceholder
-          webpSrc={imageWebp ? `/assets/${imageWebp}` : undefined}
-          src={`/assets/${image}`}
-          alt={name}
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          onLoad={() => {
-            setIsLoaded(true);
-            onImageLoad?.();
+export const ProjectCard = memo(
+  ({ name, image, imageWebp, description, links, onImageLoad }: Project) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    return (
+      <Mui_Card
+        sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: COLORS.white,
+          transition: "transform 0.3s ease-in-out",
+          "&:hover": {
+            transform: "scale(1.02)",
+            backgroundColor: COLORS.cardHover,
+          },
+        }}
+      >
+        <Box
+          sx={{
+            height: 140,
+            opacity: isLoaded ? 1 : 0.4,
+            transition: "opacity 0.3s ease-in-out",
+            transform: "translate3d(0,0,0)",
+            willChange: "opacity",
           }}
-          style={{
-            transform: 'translate3d(0,0,0)',
-            willChange: 'transform, opacity',
-            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            opacity: isLoaded ? 1 : 0
-          }}
-        />
-      </Box>
-      <CardContent sx={{ flexGrow: 1, padding: 2 }}>
-        <Typography gutterBottom variant="h6" component="h3">
-          {name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
-      </CardContent>
-      <CardActions sx={{ padding: 2, justifyContent: "flex-end" }}>
-        {links.map((link) => (
-          <CardButton
-            key={link.url}
-            onClick={() => openLink(link.url)}
-            aria-label={`Visit ${name} ${link.icon === "github" ? "repository" : "live site"}`}
-          >
-            {link.icon === "github" ? <GitHubIcon /> : <OpenInNewIcon />}
-          </CardButton>
-        ))}
-      </CardActions>
-    </Mui_Card>
-  );
-});
+        >
+          <ImageWithPlaceholder
+            webpSrc={imageWebp ? `/assets/${imageWebp}` : undefined}
+            src={`/assets/${image}`}
+            alt={name}
+            width="100%"
+            height="100%"
+            objectFit="cover"
+            onLoad={() => {
+              setIsLoaded(true);
+              onImageLoad?.();
+            }}
+            style={{
+              transform: "translate3d(0,0,0)",
+              willChange: "transform, opacity",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              opacity: isLoaded ? 1 : 0,
+            }}
+          />
+        </Box>
+        <CardContent sx={{ flexGrow: 1, padding: 2 }}>
+          <Typography gutterBottom variant="h6" component="h3">
+            {name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ padding: 2, justifyContent: "flex-start", gap: 1 }}>
+          {links.map((link) => (
+            <CardButton
+              key={link.url}
+              onClick={() => openLink(link.url)}
+              startIcon={link.icon === "GitHub" ? <GitHubIcon /> : <OpenInNewIcon />}
+              aria-label={`Visit ${name} ${link.icon === "GitHub" ? "repository" : "live site"}`}
+            >
+              {link.icon === "GitHub" ? "GitHub" : "Live Demo"}
+            </CardButton>
+          ))}
+        </CardActions>
+      </Mui_Card>
+    );
+  },
+);
 
 ProjectCard.displayName = "ProjectCard";
 
@@ -114,7 +118,7 @@ export const Projects = memo(() => {
   // Load more projects when scrolling
   useEffect(() => {
     // Feature detection
-    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       // Fallback for browsers that don't support IntersectionObserver
       setVisibleProjects(projects);
       return;
@@ -124,7 +128,7 @@ export const Projects = memo(() => {
     const handleIntersection = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setVisibleProjects(prev => {
+          setVisibleProjects((prev) => {
             const currentLength = prev.length;
             if (currentLength >= projects.length) return prev;
             const nextBatch = projects.slice(currentLength, currentLength + 3);
@@ -137,10 +141,10 @@ export const Projects = memo(() => {
     // Using any type temporarily
     const observer = new (window as any).IntersectionObserver(handleIntersection, {
       threshold: 0.1,
-      rootMargin: '200px'
+      rootMargin: "200px",
     });
 
-    const sentinel = document.getElementById('projects-sentinel');
+    const sentinel = document.getElementById("projects-sentinel");
     if (sentinel) {
       observer.observe(sentinel);
     }
@@ -149,72 +153,73 @@ export const Projects = memo(() => {
   }, []);
 
   const handleImageLoad = (imagePath: string) => {
-    setLoadedImages(prev => new Set([...prev, imagePath]));
+    setLoadedImages((prev) => new Set([...prev, imagePath]));
   };
 
   return (
-    <section id="my-projects" aria-label="My Projects Section" role="region">
+    <section
+      id="my-projects"
+      aria-label="My Projects Section"
+      role="region"
+      style={{ overflowX: "hidden" }}
+    >
       <SectionTitle title="My projects" />
-      <Box 
-        sx={{ 
-          overflow: 'hidden',
-          perspective: '1000px',
-          transform: 'translate3d(0,0,0)',
-          backfaceVisibility: 'hidden',
+      <Box
+        sx={{
+          overflow: "hidden",
+          position: "relative",
+          zIndex: 1,
         }}
       >
-        <Grid 
-          container 
-          spacing={3} 
-          sx={{ 
-            justifyContent: "center", 
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            justifyContent: "center",
             alignItems: "stretch",
-            transform: 'translate3d(0,0,0)',
-            willChange: 'transform',
-            backfaceVisibility: 'hidden',
+            transform: "translate3d(0,0,0)",
+            willChange: "transform",
+            backfaceVisibility: "hidden",
           }}
           role="list"
           aria-label="Projects grid"
         >
           {visibleProjects.map((project) => (
-            <Grid 
-              item 
-              key={project.name} 
-              xs={12} 
-              sm={6} 
+            <Grid
+              item
+              key={project.name}
+              xs={12}
+              sm={6}
               md={4}
               role="listitem"
               aria-label={`Project: ${project.name}`}
               sx={{
-                display: 'flex',
-                transform: 'translate3d(0,0,0)',
-                backfaceVisibility: 'hidden',
+                display: "flex",
+                transform: "translate3d(0,0,0)",
+                backfaceVisibility: "hidden",
                 opacity: loadedImages.has(`/assets/${project.image}`) ? 1 : 0,
-                transition: 'opacity 0.5s ease-in-out',
+                transition: "opacity 0.5s ease-in-out",
               }}
             >
-              <Box 
-                sx={{ 
-                  width: '100%',
-                  display: 'flex',
-                  transform: 'translate3d(0,0,0)',
-                  willChange: 'transform',
-                  backfaceVisibility: 'hidden',
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  transform: "translate3d(0,0,0)",
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
                 }}
               >
-                <LazyComponent 
-                  threshold={0.1} 
-                  rootMargin="300px"
-                >
-                  <ProjectCard 
-                    {...project} 
+                <LazyComponent threshold={0.1} rootMargin="300px">
+                  <ProjectCard
+                    {...project}
                     onImageLoad={() => handleImageLoad(`/assets/${project.image}`)}
                   />
                 </LazyComponent>
               </Box>
             </Grid>
           ))}
-          <div id="projects-sentinel" style={{ width: '100%', height: '20px' }} />
+          <div id="projects-sentinel" style={{ width: "100%", height: "20px" }} />
         </Grid>
       </Box>
     </section>
