@@ -114,43 +114,27 @@ export const Projects = memo(() => {
     .filter(Boolean) as string[];
 
   useImagePreloader(imagesToPreload);
-
-  // Load more projects when scrolling
+  
   useEffect(() => {
-    // Feature detection
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      // Fallback for browsers that don't support IntersectionObserver
-      setVisibleProjects(projects);
-      return;
-    }
-
-    // Using any type temporarily until we can properly fix the DOM types
-    const handleIntersection = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setVisibleProjects((prev) => {
-            const currentLength = prev.length;
-            if (currentLength >= projects.length) return prev;
-            const nextBatch = projects.slice(currentLength, currentLength + 3);
-            return [...prev, ...nextBatch];
-          });
-        }
-      });
-    };
-
-    // Using any type temporarily
-    const observer = new (window as any).IntersectionObserver(handleIntersection, {
-      threshold: 0.1,
-      rootMargin: "200px",
+    // Sauvegarde la position actuelle
+    const scrollY = window.scrollY;
+    
+    // Charger tous les projets
+    setVisibleProjects(projects);
+    
+    // Utiliser requestAnimationFrame pour une meilleure synchronisation avec le cycle de rendu
+    // eslint-disable-next-line no-undef
+    const frameId = requestAnimationFrame(() => {
+      window.scrollTo({ top: scrollY, behavior: "instant" }); // Restaure la position
     });
-
-    const sentinel = document.getElementById("projects-sentinel");
-    if (sentinel) {
-      observer.observe(sentinel);
-    }
-
-    return () => observer.disconnect();
+    
+    return () => {
+      // Nettoyer l'animation frame si le composant est démonté
+      // eslint-disable-next-line no-undef
+      cancelAnimationFrame(frameId);
+    };
   }, []);
+  
 
   const handleImageLoad = (imagePath: string) => {
     setLoadedImages((prev) => new Set([...prev, imagePath]));
@@ -161,7 +145,7 @@ export const Projects = memo(() => {
       id="my-projects"
       aria-label="My Projects Section"
       role="region"
-      style={{ overflowX: "hidden" }}
+      style={{ overflowX: "hidden", overflowY: "visible" }}
     >
       <SectionTitle title="My projects" />
       <Box
@@ -177,9 +161,6 @@ export const Projects = memo(() => {
           sx={{
             justifyContent: "center",
             alignItems: "stretch",
-            transform: "translate3d(0,0,0)",
-            willChange: "transform",
-            backfaceVisibility: "hidden",
           }}
           role="list"
           aria-label="Projects grid"
@@ -195,8 +176,6 @@ export const Projects = memo(() => {
               aria-label={`Project: ${project.name}`}
               sx={{
                 display: "flex",
-                transform: "translate3d(0,0,0)",
-                backfaceVisibility: "hidden",
                 opacity: loadedImages.has(`/assets/${project.image}`) ? 1 : 0,
                 transition: "opacity 0.5s ease-in-out",
               }}
@@ -205,9 +184,6 @@ export const Projects = memo(() => {
                 sx={{
                   width: "100%",
                   display: "flex",
-                  transform: "translate3d(0,0,0)",
-                  willChange: "transform",
-                  backfaceVisibility: "hidden",
                 }}
               >
                 <LazyComponent threshold={0.1} rootMargin="300px">

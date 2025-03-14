@@ -33,16 +33,12 @@ export const TimelineItem = ({ item, index }: Type_Props_TimelineItem) => {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           style={{ width: "100%" }}
         >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            style={{ width: "100%" }}
-          >
+          <div style={{ width: "100%" }}>
             <Paper
               elevation={3}
               sx={{
@@ -94,7 +90,7 @@ export const TimelineItem = ({ item, index }: Type_Props_TimelineItem) => {
                 </List>
               </Box>
             </Paper>
-          </motion.div>
+          </div>
         </motion.div>
       </Box>
       {/* Mobile Timeline Elements */}

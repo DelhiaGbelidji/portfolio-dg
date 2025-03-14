@@ -41,7 +41,7 @@ const ProfileImage = styled("img")(() => ({
 
 export const AboutMe = () => {
   return (
-    <section style={{ overflow: 'hidden' }}>
+    <section style={{ overflow: "hidden" }}>
       <Container>
         <TextSection>
           <Typography variant="h4" component="h1" fontWeight="bold">
@@ -75,16 +75,7 @@ export const AboutMe = () => {
 
 export const AboutMeSection = () => {
   return (
-    <section
-      id="about-me"
-      style={{
-        position: 'relative',
-        display: 'block',
-        width: '100%',
-        maxWidth: '100vw',
-        overflowX: 'hidden'
-      }}
-    >
+    <section id="about-me">
       <SectionTitle title={"my journey"} />
       <Timeline />
     </section>
